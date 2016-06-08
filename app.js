@@ -4,6 +4,7 @@ var app = {
   config : config
 };
 
+app.server = require('./drivers/server')(app);
 
 app.word = require('./services/word')(app);
 app.server.create();
