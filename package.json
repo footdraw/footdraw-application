@@ -12,6 +12,7 @@
     "socket.io" : "1.4.5",
     "config" : ">=1.21.0",
     "semantic-ui" : ">=2.1",
-    "handlebars" : ">=4.0.5"
+    "node-handlebars" : ">=0.9.7",
+    "jquery" : ">=2.2.4"
   }
 }

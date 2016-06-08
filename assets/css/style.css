@@ -1,0 +1,23 @@
+body {
+  background-color: #DADADA;
+}
+body > .grid {
+  height: 100%;
+}
+.image {
+  margin-top: -100px;
+}
+.column {
+  max-width: 450px;
+}
+
+.landpage-image{
+      height: 100%;
+}
+
+.landpage-image{
+    background-image: url('../img/splashScreen.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
