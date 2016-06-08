@@ -1,0 +1,8 @@
+{
+  "socket" : true,
+
+  "events" : [
+    { "listener" : "send", "method" : "messenger::send" }
+
+  ]
+}
