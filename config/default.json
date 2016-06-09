@@ -8,6 +8,7 @@
   "routes" :  [
     {"path" : "/", "view" : "splashScreen"},
     {"path" : "/login", "view" : "login"},
-    {"path" : "/ranking", "view" : "ranking"}
+    {"path" : "/ranking", "view" : "ranking"},
+    {"path" : "/play", "view" : "play"}
   ]
 }
