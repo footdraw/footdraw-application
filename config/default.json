@@ -23,5 +23,7 @@
 			"listener" : "leave",
 			"method"   : "messenger::leave"
 		}
-	]
+	],
+
+  "key": [{ "secret" : "1234567890QWERTY"}]
 }

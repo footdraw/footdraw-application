@@ -8,7 +8,10 @@ module.exports = function(app){
 		},
 		listen : function(){
 			this.io.on('connection' ,function(socket){
-				console.log('User connected');
+				console.log('A user connected');
+				var wordSelected = app.randomize.selectWord().toString()
+				app.socket.joinRoom(socket,wordSelected);
+				//console.log();
 
 				for (var i = app.config.events.length - 1; i >= 0; i--) {
 					var _ev = app.config.events[i];
@@ -17,6 +20,10 @@ module.exports = function(app){
 					socket.on(_ev.listener,app[_service][_method]);
 				};
 			});
+		},
+		joinRoom : function(socket,wordSelected){
+			socket.join('footDraw');
+			app.socket.io.emit('a word selected',wordSelected);
 		}
 	};
 }

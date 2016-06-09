@@ -2,10 +2,6 @@
 <head>
 	<title>Foot Node</title>
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<!--link rel="stylesheet" type="text/css" href="assets/styles.css"-->
-	<!--[if lt IE 9]>
-	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
 	<style type="text/css">
 		* {
 			margin: 0;
@@ -31,10 +27,18 @@
 			color: black;
 			font-weight: bold;
 		}
+		#word{
+			color : dodgerblue;
+			font-weight:normal;
+		}
 	</style>
 </head>
 <body>
-<h1>FootDrawer</h1>
+<h1>FootDrawer :  <span id="word"></span></h1>
+<div class="play">
+	<button id="btn-play">Jouer</button>
+	<div id="timeRemainDiv"></div>
+</div>
 <div class="tools">
 
 	<input type="hidden" id="paint-color-value" value="#000">
@@ -51,71 +55,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
-<script type="text/javascript">
-	var mouse = {
-		click: false,
-		move: false,
-		pos: {x:0, y:0},
-		pos_prev: false
-	};
-	var canvas  = document.getElementById('drawing');
-	var context = canvas.getContext('2d');
-	var socket  = io.connect();
-
-	canvas.onmousedown = function(e){
-		mouse.click = true;
-	};
-
-	canvas.onmousemove = function(e){
-		mouse.pos.x = e.clientX - this.offsetLeft;
-		mouse.pos.y = e.clientY- this.offsetTop;
-		mouse.move = true;
-	};
-
-	canvas.onmouseup = function(e){
-		mouse.click = false;
-	};
-
-	socket.on('draw_line', function (data) {
-		var line = data.line;
-		context.strokeStyle = $('#paint-color-value').val();
-		context.lineJoin = "round";
-		context.lineWidth = $('#paint-size-value').val();
-		context.beginPath();
-		context.moveTo(line[0].x, line[0].y );
-		context.lineTo(line[1].x, line[1].y);
-		context.stroke();
-	});
-
-	function mainLoop() {
-		// check if the user is drawing
-		if (mouse.click && mouse.move && mouse.pos_prev) {
-			// send line to to the server
-			socket.emit('draw_line', { line: [ mouse.pos, mouse.pos_prev ] });
-			mouse.move = false;
-		}
-		mouse.pos_prev = {x: mouse.pos.x, y: mouse.pos.y};
-		setTimeout(mainLoop, 25);
-	}
-	mainLoop();
-
-	$(function(){
-		$.each(['#f00', '#ff0', '#0f0', '#0ff', '#00f', '#f0f', '#000', '#fff'], function() {
-			$('.tools').append("<a nohref  data-color='" + this + "' style='width: 10px; background: " + this + ";' class='paint-color'></a> ");
-		});
-		$('.paint-color').on('click',function() {
-			var color = $(this).attr('data-color');
-			$('#paint-color-value').val(color);
-		});
-		$('.paint-size').on('click',function() {
-			var size = $(this).attr('data-size');
-			$('#paint-size-value').val(size);
-		});
-
-
-
-	});
-
-</script>
+<script type="text/javascript" src="/assets/js/index.js"></script>
 </body>
 </html>
