@@ -5,7 +5,8 @@ var app = {
 };
 
 app.server = require('./drivers/server')(app);
-app.handlebars = require('./drivers/handlebars')(app);
+app.routes = require('./drivers/routes')(app);
+app.socket = require('./drivers/socket')(app);
 
 app.word = require('./services/word')(app);
 app.server.create();

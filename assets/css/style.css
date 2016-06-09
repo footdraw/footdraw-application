@@ -11,13 +11,21 @@ body > .grid {
   max-width: 450px;
 }
 
-.landpage-image{
+.background-image{
       height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-attachment: fixed;
 }
 
 .landpage-image{
     background-image: url('../img/splashScreen.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
+}
+
+.ranking-image{
+    background-image: url('../img/ranking.jpg');
+}
+
+.ui.divider {
+  color : #ffffff;
 }

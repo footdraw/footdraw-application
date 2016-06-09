@@ -4,5 +4,10 @@
   "events" : [
     { "listener" : "send", "method" : "messenger::send" }
 
+  ],
+  "routes" :  [
+    {"path" : "/", "view" : "splashScreen"},
+    {"path" : "/login", "view" : "login"},
+    {"path" : "/ranking", "view" : "ranking"}
   ]
 }
