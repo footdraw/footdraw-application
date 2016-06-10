@@ -9,11 +9,13 @@
   "author": "IESA",
   "license": "ISC",
   "dependencies": {
+    "bootflat": "^2.0.4",
+    "bootstrap": "^3.3.6",
     "config": ">=1.21.0",
+    "express": ">=4.13.4",
     "fuzzyset.js": "0.0.1",
     "jquery": ">=2.2.4",
     "semantic-ui": ">=2.1",
-    "socket.io": "1.4.5",
-    "express" : ">=4.13.4"
+    "socket.io": "1.4.5"
   }
 }
