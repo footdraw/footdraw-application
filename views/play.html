@@ -27,43 +27,38 @@
 			</div>
 		</div>
 		<div class="row">
-      <div class="col-md-9">
-  			<div class="row">
-  				<div class="col-md-12">
-
-
-            <div class="color-wrap clearfix">
-    					<div class="color-picker col-md-2">
-    						<div class="color-item" style="background-color:#000000;">
-    						</div>
-    					</div>
-    					<div class="color-picker col-md-2">
-    						<div class="color-item" style="background-color:#C91F37;">
-    						</div>
-    					</div>
-    					<div class="color-picker col-md-2">
-    						<div class="color-item" style="background-color:#006442;">
-    						</div>
-    					</div>
-    					<div class="color-picker col-md-2">
-    						<div class="color-item" style="background-color:#4B77BE;">
-    						</div>
-    					</div>
-    					<div class="color-picker col-md-2">
-    						<div class="color-item" style="background-color:#F9690E;">
-    						</div>
-    					</div>
-    				</div>
-
-
-
-
-
-  					<h3>Zone de dessin</h3>
-  					<canvas id="canvas_container"></canvas>
-  				</div>
-  			</div>
-  		</div>
+		<div class="col-md-9">
+			<div class="row">
+				<div class="col-md-1">
+					<div class="color-wrap clearfix">
+						<div class="color-picker col-md-2 col-xs-2  col-sm-2">
+							<div class="color-item" style="background-color:#000000;">
+							</div>
+						</div>
+						<div class="color-picker col-md-2">
+							<div class="color-item" style="background-color:#C91F37;">
+							</div>
+						</div>
+						<div class="color-picker col-md-2">
+							<div class="color-item" style="background-color:#006442;">
+							</div>
+						</div>
+						<div class="color-picker col-md-2">
+							<div class="color-item" style="background-color:#4B77BE;">
+							</div>
+						</div>
+						<div class="color-picker col-md-2">
+							<div class="color-item" style="background-color:#F9690E;">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-11">
+					<canvas id="canvas_container"></canvas>
+                <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#modal-time">Temps imparti modal</button>
+				</div>
+			</div>
+		</div>
 		<div class="col-md-3">
 			<div class="list-group">
 				<a href="#" class="list-group-item active">Participants</a>
@@ -71,7 +66,7 @@
 				<a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">32 points</span> Pseudo 2</a>
 				<a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">15 points</span> Pseudo long 3</a>
 				<a href="#" class="list-group-item list-group-item-danger"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">10 points</span> Pseudo long 4</a>
-				<a href="#" class="list-group-item list-group-item-danger"><span class="badge badge-primary">3 points</span> Morbi leo risus</a>
+				<a href="#" class="list-group-item list-group-item-danger"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="badge badge-primary">3 points</span> Morbi leo risus</a>
 			</div>
 			<div class="panel panel-primary">
 				<div class="panel-heading">
@@ -118,7 +113,7 @@
 								</p>
 							</div>
 						</li>
-            <li class="left clearfix">
+						<li class="left clearfix">
 							<span class="chat-img pull-left">
 							</span>
 							<div class="chat-body clearfix">
@@ -144,8 +139,40 @@
 				</div>
 			</div>
 		</div>
+    <div id="modal-time" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h4 class="modal-title">Temps imparti écoulé</h4>
+          </div>
+          <div class="modal-body">
+            <p>Vous n'avez pas trouvé le mot dans le temps imparti.</p>
+			      <p>Aucun participant ne gagne de points sur cette partie.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 		<script>window.jQuery || document.write('<script src="../node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
 		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script>
+			$(document)
+				.ready(function() {
+					$("#modal").click(function() {
+							$('.modal-content').modal('show');
+						console.log('test');
+					});
+				})
+			;
+		</script>
 	</body>
 </html>
