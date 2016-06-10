@@ -1,14 +1,29 @@
 {
-  "socket" : true,
+	"routes" : [
+		{
+			"path" : "/",
+			"view" : "room",
+			"type"	: "page",
+			"extension" : "html"
+		},
+		{
+			"path" : "/assets/:param",
+			"view" : "",
+			"type"	: "file",
+			"extension" : "js"
+		}
+	],
+	"socket" : true,
+	"events" : [
+		{
+			"listener" : "draw_line",
+			"method"   : "messenger::draw_line"
+		},
+		{
+			"listener" : "leave",
+			"method"   : "messenger::leave"
+		}
+	],
 
-  "events" : [
-    { "listener" : "send", "method" : "messenger::send" }
-
-  ],
-  "routes" :  [
-    {"path" : "/", "view" : "splashScreen"},
-    {"path" : "/login", "view" : "login"},
-    {"path" : "/ranking", "view" : "ranking"},
-    {"path" : "/play", "view" : "play"}
-  ]
+  "key": [{ "secret" : "1234567890QWERTY"}]
 }

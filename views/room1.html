@@ -1,0 +1,126 @@
+<html>
+<head>
+	<title>Foot Node</title>
+	
+	<!--link rel="stylesheet" type="text/css" href="assets/styles.css"-->
+	<!--[if lt IE 9]>
+          <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+</head>
+<body>
+	<h1>FootDrawer</h1>
+		<canvas id="myCanvas" width="500" height="500" resize>
+			Your browser needs to support canvas for this to work!
+		</canvas>
+		<input type='text' id="coords" value="">
+
+		<canvas id="mirrorCanvas" width="500" height="500" resize>
+			Your browser needs to support canvas for this to work!
+		</canvas>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script type="text/javascript" src="/assets/js/paper.js"></script>
+	
+	<script type="text/paperscript" canvas="myCanvas">
+		var socket = io();
+		var path;
+
+		var textItem = new PointText({
+			content: 'Click and drag to draw a line.',
+			point: new Point(20, 30),
+			fillColor: 'black',
+		});
+
+		function onMouseDown(event) {
+			// If we produced a path before, deselect it:
+			if (path) {
+				path.selected = false;
+			}
+			setCursorPos(event.point);
+			// Create a new path and set its stroke color to black:
+			path = new Path({
+				segments: [event.point],
+				strokeColor: 'black',
+				// Select the path, so we can see its segment points:
+				fullySelected: true
+			});
+		}
+
+		// While the user drags the mouse, points are added to the path
+		// at the position of the mouse:
+		function onMouseDrag(event) {
+			path.add(event.point);
+			setCursorPos(event.point);
+			// Update the content of the text item to show how many
+			// segments it has:
+			textItem.content = 'Segment count: ' + path.segments.length;
+		}
+
+		// When the mouse is released, we simplify the path:
+		function onMouseUp(event) {
+			var segmentCount = path.segments.length;
+			resetCursorPos(event.point);
+			// When the mouse is released, simplify it:
+			path.simplify(10);
+
+			// Select the path, so we can see its segments:
+			path.fullySelected = true;
+
+			var newSegmentCount = path.segments.length;
+			var difference = segmentCount - newSegmentCount;
+			var percentage = 100 - Math.round(newSegmentCount / segmentCount * 100);
+			textItem.content = difference + ' of the ' + segmentCount + ' segments were removed. Saving ' + percentage + '%';
+		}
+
+		function setCursorPos(point){
+			//socket.emit('send',point);
+		}
+
+		function resetCursorPos(point){
+			socket.emit('leave',point);
+		}
+
+	</script>
+
+	<script type="text/paperscript" canvas="mirrorCanvas">
+		var socket = io();
+		var secondPath;
+		var textItem = new PointText({
+			content: 'Click and drag to draw a line.',
+			point: new Point(20, 30),
+			fillColor: 'black',
+		});
+
+
+		function setPath(point){
+			secondPath = new Path({
+						segments: [point],
+						strokeColor: 'black'
+					});
+		}
+		 
+		setPath(new Point(0,0));
+
+		socket.on('receive',function(pt){
+			/*if(secondPath.closed){
+				secondPath.closed = false;
+				secondPath = new Path();
+				secondPath.moveTo(new Point(pt[1],pt[2]));
+			}
+			secondPath.add(new Point(pt[1],pt[2]));*/
+		});
+		socket.on('leave',function(segment){
+			var secondPath = new Path({
+						segments: [new Point(pt[1],pt[2])],
+						strokeColor: 'black'
+					});
+			//secondPath.closed = true;
+			//secondPath.smooth();
+			console.log('deselect',pt);
+		});
+		
+	</script>
+	
+</body>
+</html>

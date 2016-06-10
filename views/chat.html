@@ -1,0 +1,128 @@
+<html>
+<head>
+	<title>Foot Node</title>
+	<link rel="stylesheet" href="/assets/style/semantic.css">
+	<!--link rel="stylesheet" type="text/css" href="assets/styles.css"-->
+	<!--[if lt IE 9]>
+	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		body, html{
+			width: 100%;
+			height: 100%;
+		}
+		#canvas {
+			display: block;
+			cursor: crosshair;
+
+		}
+		.ui.main.container{
+			margin-top: 5%;
+		}
+	</style>
+</head>
+<body>
+<div class="ui fixed inverted menu">
+	<div class="ui container">
+		<a href="#" class="header item">
+			<img class="logo" src="">
+			Project Name
+		</a>
+		<a href="#" class="item">Home</a>
+		<div class="ui simple dropdown item">
+			Dropdown <i class="dropdown icon"></i>
+			<div class="menu">
+				<a class="item" href="#">Link Item</a>
+				<a class="item" href="#">Link Item</a>
+				<div class="divider"></div>
+				<div class="header">Header Item</div>
+				<div class="item">
+					<i class="dropdown icon"></i>
+					Sub Menu
+					<div class="menu">
+						<a class="item" href="#">Link Item</a>
+						<a class="item" href="#">Link Item</a>
+					</div>
+				</div>
+				<a class="item" href="#">Link Item</a>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="ui main container">
+	<div class="ui text container">
+		<div class="ui one column grid">
+			<h1 class="column">FootDrawer</h1>
+
+		</div>
+	</div>
+	<canvas id="drawing" style="border:1px solid darkgrey;">
+		Your browser needs to support canvas for this to work!
+	</canvas>
+
+
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+<script type="text/javascript">
+	var mouse = {
+		click: false,
+		move: false,
+		pos: {x:0, y:0},
+		pos_prev: false
+	};
+	var canvas  = document.getElementById('drawing');
+	var context = canvas.getContext('2d');
+	var width   = window.innerWidth;
+	var height  = window.innerHeight;
+	var socket  = io.connect();
+	canvas.width = width/2;
+	canvas.height = height/1.5;
+
+	canvas.onmousedown = function(e){
+		mouse.click = true;
+	};
+
+	canvas.onmousemove = function(e){
+		mouse.pos.x = e.clientX / (width*2.5);
+		mouse.pos.y = e.clientY / width;
+		mouse.move = true;
+	};
+
+	canvas.onmouseup = function(e){
+		mouse.click = false;
+	};
+
+	socket.on('draw_line', function (data) {
+		var line = data.line;
+		context.strokeStyle = "#df4b26";
+		context.lineJoin = "round";
+		context.lineWidth = 5;
+		context.beginPath();
+		/* context.moveTo(line[0].x * width, line[0].y * height);
+		 context.lineTo(line[1].x * width, line[1].y * height);*/
+		context.moveTo(line[0].x, line[0].y);
+		context.lineTo(line[1].x * width, line[1].y * height);
+		context.stroke();
+	});
+
+	function mainLoop() {
+		// check if the user is drawing
+		if (mouse.click && mouse.move && mouse.pos_prev) {
+			// send line to to the server
+			socket.emit('draw_line', { line: [ mouse.pos, mouse.pos_prev ] });
+			mouse.move = false;
+		}
+		mouse.pos_prev = {x: mouse.pos.x, y: mouse.pos.y};
+		setTimeout(mainLoop, 25);
+	}
+	mainLoop();
+</script>
+</body>
+</html>

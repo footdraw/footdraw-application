@@ -6,16 +6,18 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "IESA",
+
+  "author": "Flori@n",
   "license": "ISC",
   "dependencies": {
     "bootflat": "^2.0.4",
     "bootstrap": "^3.3.6",
-    "config": ">=1.21.0",
-    "express": ">=4.13.4",
-    "fuzzyset.js": "0.0.1",
-    "jquery": ">=2.2.4",
-    "semantic-ui": ">=2.1",
-    "socket.io": "1.4.5"
+    "config": "1.21.0",
+    "express": "^4.13.4",
+    "jquery": "^2.2.4",
+    "semantic-ui": "^2.1.8",
+    "semantic-ui-css": "^2.1.8",
+    "socket.io": "^1.4.6",
+    "underscore": "^1.8.3"
   }
 }
