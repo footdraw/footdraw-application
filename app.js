@@ -9,4 +9,5 @@
 	app.socket = require('./drivers/socket.js')(app);
 	app.messenger = require('./services/messenger.js')(app);
 	app.randomize = require('./services/randomize.js')(app);
+	app.room = require('./services/room.js')(app);
 	app.server.create();

@@ -7,6 +7,8 @@ var mouse = {
 var canvas  = document.getElementById('drawing');
 var context = canvas.getContext('2d');
 var socket  = io.connect();
+//Communication to join room with user Data
+ socket.emit('subscribe','monpseudo');
 
 canvas.onmousedown = function(e){
     mouse.click = true;
@@ -33,8 +35,8 @@ socket.on('draw_line', function (data) {
     context.stroke();
 });
 
-socket.on('a word selected',function(word){
-    $('#word').html(word);
+socket.on('game start',function(word){
+    $('#instructions').html(word);
 });
 
 function mainLoop() {
@@ -61,12 +63,16 @@ $(function(){
     });
 });
 
-//$(this).disabled;
+// On Play
+
+socket.on('game start',function(){
+    $('#btn-play').attr('disabled','disabled');
+    timeRemain = setInterval(displayRemainTime,1000);
+});
 var time = 90;
 var timeRemain;
 $('#btn-play').on('click',function(){
-    $(this).attr('disabled','disabled');
-    timeRemain = setInterval(displayRemainTime,1000);
+    socket.emit('play_clicked');
 });
 
 function displayRemainTime(){
@@ -76,10 +82,26 @@ function displayRemainTime(){
     --time;
     if(time<0){
         clearInterval(timeRemain);
-        console.log(time);
+        $('#btn-play').removeAttr('disabled');
     }
 }
 
 function formatTime(unit){
     return (unit<10)? '0'+unit : unit;
 }
+
+function answer(msg){
+    socket.emit('answer',$('#msg').val());
+}
+
+$(document).on('keyup',function(ev){
+    if(ev.keyCode ===13) answer();
+});
+
+$('#send').click(function(){
+    answer();
+});
+socket.on('answered',function(message){
+    $('#msg-list').append('<li>'+message+'</li>');
+    $('#msg').val('');
+});

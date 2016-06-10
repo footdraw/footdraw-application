@@ -34,7 +34,7 @@
 	</style>
 </head>
 <body>
-<h1>FootDrawer :  <span id="word"></span></h1>
+<h1>Bienvenue sur FootDraw <span id="instructions"></span></h1>
 <div class="play">
 	<button id="btn-play">Jouer</button>
 	<div id="timeRemainDiv"></div>
@@ -51,6 +51,16 @@
 <canvas id="drawing" style="border:1px solid #EEEEEE" width="490" height="220">
 	Your browser needs to support canvas for this to work!
 </canvas>
+ <div>
+	 <input type="text" id="msg">
+	 <button id="send">envoyer</button>
+ </div>
+
+<div class="">
+	<ul id="msg-list">
+
+	</ul>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>

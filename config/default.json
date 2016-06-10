@@ -22,7 +22,19 @@
 		{
 			"listener" : "leave",
 			"method"   : "messenger::leave"
-		}
+		},
+		{
+			"listener" : "subscribe",
+			"method"   : "room::subscription"
+		},
+		{
+			"listener" : "play_clicked",
+			"method"   : "room::start"
+		},
+	  {
+		"listener" : "answer",
+		"method" : "messenger::answer"
+	  }
 	],
 
   "key": [{ "secret" : "1234567890QWERTY"}]
