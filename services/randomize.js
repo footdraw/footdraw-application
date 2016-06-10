@@ -6,7 +6,7 @@ module.exports = function(app){
             var selectedWord  = fs.readFileSync('config/words.json');
             selectedWord =  (!selectedWord)?null : _.sample(JSON.parse(selectedWord).words,1);
             return selectedWord;
-        },
+        }
     }
 }
 

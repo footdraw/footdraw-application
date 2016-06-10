@@ -1,38 +1,22 @@
 {
-<<<<<<< HEAD
-  "name": "socket",
-  "version": "1.0.0",
-  "description": "Chat base on Socket io",
-=======
   "name": "footdraw",
   "version": "1.0.0",
   "description": "School project",
->>>>>>> 32fe7d226ebb649534ccd121976f702d581f2875
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-<<<<<<< HEAD
   "author": "Flori@n",
   "license": "ISC",
   "dependencies": {
     "config": "1.21.0",
+    "ent": "^2.2.0",
     "express": "^4.13.4",
     "jquery": "^2.2.4",
     "semantic-ui": "^2.1.8",
     "semantic-ui-css": "^2.1.8",
     "socket.io": "^1.4.6",
+    "uid": "0.0.2",
     "underscore": "^1.8.3"
-=======
-  "author": "IESA",
-  "license": "ISC",
-  "dependencies": {
-    "config": ">=1.21.0",
-    "fuzzyset.js": "0.0.1",
-    "jquery": ">=2.2.4",
-    "semantic-ui": ">=2.1",
-    "socket.io": "1.4.5",
-    "express" : ">=4.13.4"
->>>>>>> 32fe7d226ebb649534ccd121976f702d581f2875
   }
 }
