@@ -1,17 +1,18 @@
 {
 	"routes" : [
 		{
-			"path" : "/",
-			"view" : "room",
-			"type"	: "page",
-			"extension" : "html"
+			"path" : "/game",
+			"view" : "room"
 		},
 		{
 			"path" : "/assets/:param",
-			"view" : "",
-			"type"	: "file",
-			"extension" : "js"
-		}
+			"view" : ""
+		} ,
+	  {"path" : "/landing", "view" : "splashScreen"},
+	  {"path" : "/", "view" : "login"},
+	  {"path" : "/ranking", "view" : "ranking"},
+	  {"path" : "/game", "view" : "game"}
+
 	],
 	"socket" : true,
 	"events" : [

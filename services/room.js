@@ -14,7 +14,6 @@ module.exports = function(app){
        },
         subscription : function(pseudo) {
             var userPseudo = ent.encode(pseudo) ;
-            console.log('subscribed');
             this.join(app.room.props.name);
             app.room.populateSocket(userPseudo,this.id);
             app.socket.io.emit('subscribed');
