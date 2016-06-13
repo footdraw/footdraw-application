@@ -9,7 +9,8 @@ $(document).on('keyup',function(ev){
 $('#send').click(function(){
     answer();
 });
+
 socket.on('answered',function(message){
-    $('#msg-list').append('<li>'+message+'</li>');
+    $('#msg-list').append('<li class="list-group-item">'+message+'</li>');
     $('#msg').val('');
 });

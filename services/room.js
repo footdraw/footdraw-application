@@ -26,16 +26,15 @@ module.exports = function(app){
                  'response':'null',
                  'rank':'null'
              };
-           app. room['props'].attendees.push(data);
+           app.room['props'].attendees.push(data);
         },
         start : function(){
-             var drawer = _.sample(app.room.props.attendees);
-             app.room.props.drawer = drawer.id;
+            var drawer = _.sample(app.room.props.attendees);
+            app.room.props.drawer = drawer.id;
             var drawerInstruction = "Le mot à dessiner est : "+app.room.props.word ;
             var playerInstruction = "Démarrez ! Vous avez 1min30 pour deviner le mot";
-             app.socket.io.emit('game start',drawerInstruction);
-             this.broadcast.emit('game start',playerInstruction);
-            //get user input
+            app.socket.io.emit('game start',drawerInstruction);
+            this.broadcast.emit('game start',playerInstruction);
             //compare and rank player
         }
      }

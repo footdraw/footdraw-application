@@ -6,9 +6,28 @@ var mouse = {
     pos: {x:0, y:0},
     pos_prev: false
 };
-var canvas  = document.getElementById('canvas_container');
+var canvas  = document.getElementById('drawing');
 var context = canvas.getContext('2d');
 
+
+
+//Manage Touch Events
+canvas.ontouchestart = function(e){
+    mouse.click = true;
+    console.log('touch start');
+};
+
+canvas.ontouchmove = function(e){
+    mouse.pos.x = e.clientX - this.offsetLeft;
+    mouse.pos.y = e.clientY- this.offsetTop;
+    mouse.move = true;
+};
+
+canvas.ontoucheend = function(e){
+    mouse.click = false;
+};
+
+//Manage Mouse Events
 canvas.onmousedown = function(e){
     mouse.click = true;
 };
@@ -37,7 +56,7 @@ socket.on('draw_line', function (data) {
     var line = data.line;
     context.strokeStyle = $('#paint-color-value').val();
     context.lineJoin = "round";
-    context.lineWidth = $('#paint-size-value').val();console.log('receive',context.lineWidth);
+    context.lineWidth = $('#paint-size-value').val();
     context.beginPath();
     context.moveTo(line[0].x, line[0].y );
     context.lineTo(line[1].x, line[1].y);

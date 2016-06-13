@@ -1,7 +1,7 @@
 {
 	"routes" : [
 		{
-			"path" : "/game",
+			"path" : "/games",
 			"view" : "room"
 		},
 		{
@@ -9,7 +9,7 @@
 			"view" : ""
 		} ,
 	  {"path" : "/landing", "view" : "splashScreen"},
-	  {"path" : "/", "view" : "login"},
+	  {"path" : "/", "view" : "login","data" : "login"},
 	  {"path" : "/ranking", "view" : "ranking"},
 	  {"path" : "/game", "view" : "game"}
 

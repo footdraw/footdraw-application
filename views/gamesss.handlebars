@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Game</title>
+		<link href="../node_modules/bootflat/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../node_modules/bootflat/css/site.min.css" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="../assets/css/chat.css">
+		<link rel="stylesheet" type="text/css" href="../assets/css/style.css">
+	</head>
+	<body class="ranking-image">
+		<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-offset-5 col-md-2">
+				<div class="pricing">
+					<ul>
+						<li class="unit price-success active">
+							<div class="price-title">
+								<p>Temps restant :</p>
+								<h3>1:30</h3>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+      <div class="col-md-9">
+  			<div class="row">
+  				<div class="col-md-12">
+
+
+            <div class="color-wrap clearfix">
+    					<div class="color-picker col-md-2">
+    						<div class="color-item" style="background-color:#000000;">
+    						</div>
+    					</div>
+    					<div class="color-picker col-md-2">
+    						<div class="color-item" style="background-color:#C91F37;">
+    						</div>
+    					</div>
+    					<div class="color-picker col-md-2">
+    						<div class="color-item" style="background-color:#006442;">
+    						</div>
+    					</div>
+    					<div class="color-picker col-md-2">
+    						<div class="color-item" style="background-color:#4B77BE;">
+    						</div>
+    					</div>
+    					<div class="color-picker col-md-2">
+    						<div class="color-item" style="background-color:#F9690E;">
+    						</div>
+    					</div>
+    				</div>
+
+
+
+
+
+  					<h3>Zone de dessin</h3>
+  					<canvas id="canvas_container"></canvas>
+  				</div>
+  			</div>
+  		</div>
+		<div class="col-md-3">
+			<div class="list-group">
+				<a href="#" class="list-group-item active">Participants</a>
+				<a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">38 points</span> Pseudo 1</a>
+				<a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">32 points</span> Pseudo 2</a>
+				<a href="#" class="list-group-item list-group-item-info"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">15 points</span> Pseudo long 3</a>
+				<a href="#" class="list-group-item list-group-item-danger"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> <span class="badge badge-primary">10 points</span> Pseudo long 4</a>
+				<a href="#" class="list-group-item list-group-item-danger"><span class="badge badge-primary">3 points</span> Morbi leo risus</a>
+			</div>
+			<div class="panel panel-primary">
+				<div class="panel-heading">
+					Chat
+				</div>
+				<div class="panel-body panel-primary">
+					<ul class="chat">
+						<li class="left clearfix">
+							<span class="chat-img pull-left">
+							</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Pseudo 2</strong> <small class="pull-right text-muted">
+									<span class="glyphicon glyphicon-time"></span>12 mins ago</small>
+								</div>
+								<p>
+									ballon
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<span class="chat-img pull-left">
+							</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Pseudo 3</strong> <small class="pull-right text-muted">
+									<span class="glyphicon glyphicon-time"></span>14 mins ago</small>
+								</div>
+								<p>
+									carton rouge
+								</p>
+							</div>
+						</li>
+						<li class="left clearfix">
+							<span class="chat-img pull-left">
+							</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Pseudo 3</strong> <small class="pull-right text-muted">
+									<span class="glyphicon glyphicon-time"></span>18 mins ago</small>
+								</div>
+								<p>
+									cage
+								</p>
+							</div>
+						</li>
+            <li class="left clearfix">
+							<span class="chat-img pull-left">
+							</span>
+							<div class="chat-body clearfix">
+								<div class="header">
+									<strong class="primary-font">Pseudo long 4</strong> <small class="pull-right text-muted">
+									<span class="glyphicon glyphicon-time"></span>22 mins ago</small>
+								</div>
+								<p>
+									maison
+								</p>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="panel-footer">
+					<div class="input-group">
+						<input id="btn-input" type="text" class="form-control input-sm" placeholder="Tapez votre réponse ici..." />
+						<span class="input-group-btn">
+						<button class="btn btn-warning btn-sm" id="btn-chat">
+						Envoyer</button>
+						</span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script>window.jQuery || document.write('<script src="../node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
+		<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+	</body>
+</html>

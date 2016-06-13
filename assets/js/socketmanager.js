@@ -1,1 +1,1 @@
-var socket  = io.connect();
+var socket  = (!socket)? io.connect() : socket;

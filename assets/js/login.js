@@ -5,7 +5,7 @@ $(function(){
     });
 
     socket.on('subscribed',function(){
-        window.location ='/game';
+        window.location ='/games';
     });
 });
 
