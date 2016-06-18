@@ -3,6 +3,7 @@
 	<title>Foot Node</title>
 	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
 	<link href="/node_modules/bootflat/css/site.min.css" rel="stylesheet">
+	<link href="/node_modules/sweetalert/dist/sweetalert.css" rel="stylesheet">
 	<style type="text/css">
 		* {
 			margin: 0;
@@ -69,14 +70,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 <script  type="text/javascript" src="/assets/js/socketmanager.js"></script>
+<script type="text/javascript" src="/node_modules/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="/assets/js/index.js"></script>
-{{#if login}}
-	<script src="/assets/js/login.js"></script>
-{{else}}
+<script type="text/javascript" src="/assets/js/utils.js"></script>
+<script src="/assets/js/events/players.js"></script>
+<script src="/assets/js/login.js"></script>
 
 <script type="text/javascript" src="/assets/js/canvas.js"></script>
 <script type="text/javascript" src="/assets/js/chat.js"></script>
 
-{{/if}}
 </body>
 </html>

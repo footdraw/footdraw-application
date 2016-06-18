@@ -9,7 +9,7 @@
 			"view" : ""
 		} ,
 	  {"path" : "/landing", "view" : "splashScreen"},
-	  {"path" : "/", "view" : "login","data" : "login"},
+	  {"path" : "/", "view" : "index"},
 	  {"path" : "/ranking", "view" : "ranking"},
 	  {"path" : "/game", "view" : "game"}
 

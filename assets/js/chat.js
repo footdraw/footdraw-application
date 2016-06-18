@@ -1,5 +1,7 @@
-function answer(msg){
-    socket.emit('answer',$('#msg').val());
+function answer(){
+    var  msg = $('#msg').val().trim();
+    (msg.length!==0)? socket.emit('answer',msg) : '';
+
 }
 
 $(document).on('keyup',function(ev){

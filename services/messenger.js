@@ -3,8 +3,7 @@ var _ =  require('underscore');
 module.exports = function(app){
 	return{
 		draw_line : function(msg){
-			//if(this.id === app.room.props.drawer) app.socket.io.emit('draw_line',msg);
-			app.socket.io.emit('draw_line',msg);
+			if(this.id === app.room.props.drawer) app.socket.io.emit('draw_line',msg);
 		},
 		leave : function(point){
 			app.socket.io.emit('leave',point);
@@ -12,11 +11,11 @@ module.exports = function(app){
 		answer : function(response){
 			var id = this.id;
 
-			_.find(app.room.props.attendees, function(item) {
-				console.log(item.id === id,id,item.id);
-			    return item.id == id; 
+			var currentUser = _.find(app.room.props.attendees, function(item) {
+			    return item.id == id;
 			});
-			app.socket.io.emit('answered',ent.encode(response));
+			var message = currentUser.pseudo+' : '+ response;
+			app.socket.io.emit('answered',ent.encode(message));
 		}
 
 	}
