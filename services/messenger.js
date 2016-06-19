@@ -1,6 +1,6 @@
-var ent  = require('ent');
-var _ =  require('underscore');
-module.exports = function(app){
+var ent                = require('ent');
+var _                  = require('underscore');
+module.exports         = function(app){
 	return{
 		draw_line : function(msg){
 			if(this.id === app.room.props.drawer) app.socket.io.emit('draw_line',msg);
@@ -9,14 +9,19 @@ module.exports = function(app){
 			app.socket.io.emit('leave',point);
 		},
 		answer : function(response){
-			var id = this.id;
+			var message      = '';
+			var pseudo = app.room.getUserPseudo(this.id)
+ 			//End game time off / Winner
+			if(app.room.checkResponse(response,this.id)){
+				message      = {'pseudo' : pseudo,'word' : app.room.props.word};
+				app.socket.io.emit('winner found',message);
+			}else{
+				message      = {'pseudo' : pseudo,'response' : ent.encode(response)};
+				app.socket.io.emit('answered',message);
+				console.log(message);
+			}
+		},
 
-			var currentUser = _.find(app.room.props.attendees, function(item) {
-			    return item.id == id;
-			});
-			var message = currentUser.pseudo+' : '+ response;
-			app.socket.io.emit('answered',ent.encode(message));
-		}
 
 	}
 }

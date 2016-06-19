@@ -28,15 +28,20 @@
 			"listener" : "subscribe",
 			"method"   : "room::subscription"
 		},
-		{
-			"listener" : "play_clicked",
-			"method"   : "room::start"
-		},
 	  {
 		"listener" : "answer",
 		"method" : "messenger::answer"
+	  },
+	  {
+		"listener" : "drawer ready",
+		"method" : "room::startGame"
+	  },
+	  {
+		"listener" : "time elapsed",
+		"method" : "room::resetWinner"
 	  }
 	],
 
-  "key": [{ "secret" : "1234567890QWERTY"}]
+  "key": [{ "secret" : "1234567890QWERTY"}],
+	"playersNumber" : "2"
 }

@@ -13,6 +13,34 @@ $('#send').click(function(){
 });
 
 socket.on('answered',function(message){
-    $('#msg-list').append('<li class="list-group-item">'+message+'</li>');
+    $('#msg-list').append('<li class="list-group-item"><b>'+message.pseudo+'</b> : '+message.response +'</li>');
     $('#msg').val('');
+});
+
+socket.on('winner found',function(winner){
+  swal({
+    title : 'Jeu terminé',
+    text : 'Le gagnant est '+winner.pseudo+' et la bonne réponse était : '+winner.word,
+    showCancelButton: false,
+    showConfirmButton: true,
+    closeOnConfirm: false,
+    confirmButtonText : 'Je veux rejouer !',
+    html : true
+  },function(isConfirm){
+    console.log('rejouer');
+  });
+});
+
+socket.on('time end',function(winner){
+  swal({
+    title : 'Jeu terminé',
+    text : 'Le temps est terminé. Aucun gagnant ! :(',
+    showCancelButton: false,
+    showConfirmButton: true,
+    closeOnConfirm: false,
+    confirmButtonText : 'Je veux rejouer !',
+    html : true
+  },function(isConfirm){
+    console.log('rejouer');
+  });
 });

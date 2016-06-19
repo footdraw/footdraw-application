@@ -13,12 +13,15 @@ module.exports = function(app){
             app.room.init();
 
             for (var i = app.config.events.length - 1; i >= 0; i--) {
-                var _ev = app.config.events[i];
+                var _ev         = app.config.events[i];
                 var _service    = _ev.method.split('::')[0],
-                        _method  = _ev.method.split('::')[1];
+                        _method = _ev.method.split('::')[1];
                 socket.on(_ev.listener,app[_service][_method]);
             };
 
+            socket.on('disconnect',function(){
+              console.log('A user is disconnected');
+            });
 			});
 		}
 	};
