@@ -8,12 +8,13 @@ $(document).on('keyup',function(ev){
     if(ev.keyCode ===13) answer();
 });
 
-$('#send').click(function(){
+$('#send').click(function(e){
+    e.preventDefault();
     answer();
 });
 
 socket.on('answered',function(message){
-    $('#msg-list').append('<li class="list-group-item"><b>'+message.pseudo+'</b> : '+message.response +'</li>');
+    $('#msg-list').append('<li><span>'+message.pseudo+'</span> : '+message.response +'</li>');
     $('#msg').val('');
 });
 

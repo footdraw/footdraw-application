@@ -1,0 +1,258 @@
+
+/*écran 3*/
+
+
+.header{
+    width: 100%;
+    padding-bottom: 0px!important;
+    text-align: center;
+}
+
+
+.header .ten{
+
+    background: #4A6E99;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color: #fff;
+    font-family:"ubuntu";
+
+}
+
+.header .ten h3{
+
+    font-family:"ubuntu";
+
+}
+
+.header .six{
+
+    background: #FFB69F;
+    width: 100%;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    color:#fff;
+}
+
+.header .six h3{
+    font-family:"ubuntu";
+}
+
+.whitecolor{
+    width: 100%;
+    height: 100%;
+}
+
+.draw .sixteen{
+
+    width: 100%;
+    height: 300px;
+
+
+}
+
+input[type=text] {
+    width: 79%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border:none;
+}
+
+#send {
+    width: 20%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    background: #FFB69F !important;
+    border: none;
+    color: #fff;
+}
+
+.chat .form{
+    background: #4A6E99;
+}
+
+.chat .reply{
+    background: #fff;
+}
+
+.colors{
+    background: #fff;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+    border-bottom: 1px solid #CC4639;
+}
+
+#colors{
+    padding: 5px 10px;
+}
+
+#colors li{
+    display:inline-block;
+    margin-left: 10px;
+    padding-left: none;
+}
+
+.circle{
+  width: 30px;
+	height: 30px;
+  -moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+  border: 1px solid grey;
+
+}
+.circlered {
+	width: 30px;
+	height: 30px;
+	background: red;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.circleyellow {
+	width: 30px;
+	height: 30px;
+	background: yellow;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.circleblue {
+	width: 30px;
+	height: 30px;
+	background: blue;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.circlegreen {
+	width: 30px;
+	height: 30px;
+	background: green;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.circlewhite {
+	width: 30px;
+	height: 30px;
+	background: white;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+    border: 1px solid #000;
+}
+
+.circleblack {
+	width: 30px;
+	height: 30px;
+	background: black;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.circleorange {
+	width: 30px;
+	height: 30px;
+	background: orange;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+.circlepink {
+	width: 30px;
+	height: 30px;
+	background: pink;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+}
+
+.draw{
+    background: #fff;
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+    border-bottom: 1px solid #CC4639;
+
+}
+
+.chat{
+    padding-top: 0px!important;
+    padding-bottom: 0px!important;
+
+}
+
+.reply ul {
+   list-style-image: url(image/man-user.svg);
+   margin: 1em 0;
+   padding: 0;
+    text-align: left;
+
+}
+.reply ul {
+
+   margin: 0;
+   padding: 3px 10px 5px 20px;
+   color: #666;
+}
+.reply ul li {
+   color: #000;
+   border-bottom: 1px solid #ccc;
+}
+
+li{
+    list-style: none;
+}
+li span {
+    font-weight: bold;
+}
+/*Fin écran 3*/
+
+body{
+	background: url("image/Slashscreen.jpg");
+	background-size:cover;
+    margin: auto;
+    padding: auto;
+    text-align: center;
+}
+
+#participant{
+    color:grey;
+}
+
+#classement{
+    color:grey;
+}
+
+#gameRule{
+    color:grey;
+    text-align: center;
+
+}
+
+.logo{
+	text-align: center;
+}
+
+.logo img{
+	width: 250px;
+	height: 250px;
+    margin-top: 10%;
+}
+
+#formPseudo .form{
+	text-align: center;
+  font-weight: bold;
+}
+
+.sixteen h3{
+	color:#fff;
+    font-family:"ubuntu";
+    font-size: 20px;
+}
+
+.ui.red.buttons .button, .ui.red.button{
+    background-color : #CC4639;
+}

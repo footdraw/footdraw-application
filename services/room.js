@@ -48,9 +48,11 @@ module.exports = function(app){
         drawer     = _.sample(app.room.props.attendees);
       }
 
-      app.room.props.drawer = drawer.id;
-      app.socket.io.sockets.connected[drawer.id].emit('disable chat');
-      app.socket.io.sockets.connected[drawer.id].emit('you draw');
+      if(typeof drawer.id !=='undefined'){
+        app.room.props.drawer = drawer.id;
+        app.socket.io.sockets.connected[drawer.id].emit('disable chat');
+        app.socket.io.sockets.connected[drawer.id].emit('you draw');
+      }
     },
     checkResponse : function(response,id){
       var tabWord = [app.room.props.word];

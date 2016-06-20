@@ -35,7 +35,7 @@ function connectUser(username){
 function displayRemainTime(){
   var minutesToDisplay = formatTime(parseInt(time/60,10)) ;
   var secondsToDisplay = formatTime(parseInt(time%60,10)) ;
-  $('#timeRemainDiv h3').html(minutesToDisplay+' : '+secondsToDisplay);
+  $('.time .countDown').html(minutesToDisplay+' : '+secondsToDisplay);
   --time;
   if(time<=0){
     clearInterval(timeRemain);

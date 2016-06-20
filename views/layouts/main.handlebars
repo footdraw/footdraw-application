@@ -1,8 +1,9 @@
 <html>
 <head>
 	<title>Foot Node</title>
-	<link href='https://fonts.googleapis.com/css?family=Lato' rel='stylesheet' type='text/css'>
-	<link href="/node_modules/bootflat/css/site.min.css" rel="stylesheet">
+	<link href='https://fonts.googleapis.com/css?family=Ubuntu' rel='stylesheet' type='text/css'>
+	<link href="/assets/style/semantic/semantic.css" rel="stylesheet">
+	<link href="/assets/style/style.css" rel="stylesheet">
 	<link href="/node_modules/sweetalert/dist/sweetalert.css" rel="stylesheet">
 	<style type="text/css">
 		* {
@@ -18,18 +19,7 @@
 			background-color: #ffffff !important;
 			display: block;
 		}
-		.tools a{
-			border: 1px solid black;
-			height: 30px;
-			line-height: 30px;
-			padding: 0 10px;
-			vertical-align: middle;
-			text-align: center;
-			text-decoration: none;
-			display: inline-block;
-			color: black;
-			font-weight: bold;
-		}
+
 		#instructions{
 			color : dodgerblue;
 			font-weight:normal;
@@ -46,25 +36,12 @@
 			position: relative;
 
 		}
-		#timeRemainDiv{
-			position: absolute;
-			top: 0;
-			width: 250px;
-			height: 104px;
-			background: #A0D468;
-			text-align: center;
-			color: #ffffff;
-			-webkit-border-radius:0 0px 7px 7px;
-			-moz-border-radius: 0 0px 7px 7px;
-			border-radius: 0 0px 7px 7px;
-		}
-		.time-title{
-
-		}
 	</style>
 </head>
 <body id="game">
+<div class="ui width center aligned grid main">
 	{{{body}}}
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.6/socket.io.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
