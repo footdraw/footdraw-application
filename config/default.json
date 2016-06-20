@@ -39,9 +39,17 @@
 	  {
 		"listener" : "time elapsed",
 		"method" : "room::resetWinner"
+	  },
+	  {
+		"listener" : "popup closed",
+		"method" : "room::getRemainTime"
 	  }
 	],
 
   "key": [{ "secret" : "1234567890QWERTY"}],
-	"playersNumber" : "2"
+	"game" : 	{
+			"minPlayers" : "2",
+			"time" : "90"
+		}
+
 }

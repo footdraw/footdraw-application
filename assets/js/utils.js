@@ -1,6 +1,3 @@
-var time               = 90;
-var timeRemain         ='';
-
 function connectUser(username){
   socket.emit('subscribe',username.trim());
   //if players number require is unreach
@@ -23,28 +20,22 @@ function connectUser(username){
   //if players number is reach
   socket.on('you draw',function(){
     socket.emit('drawer ready');
-    console.log('i draw');
   });
+
   socket.on('close alert',function(){
+    socket.emit('popup closed');
     swal.close();
-    timeRemain         = setInterval(displayRemainTime,1000);
-    console.log('close alert');
+  });
+
+  socket.on('remain time',function(time){
+    displayRemainTime(time);
   });
 }
 
-function displayRemainTime(){
+function displayRemainTime(time){
   var minutesToDisplay = formatTime(parseInt(time/60,10)) ;
   var secondsToDisplay = formatTime(parseInt(time%60,10)) ;
   $('.time .countDown').html(minutesToDisplay+' : '+secondsToDisplay);
-  --time;
-  if(time<=0){
-    clearInterval(timeRemain);
-    clearInterval(this);
-    time               = 0;
-    //Emit event to stop game
-    socket.emit('time elapsed');
-    return false;
-  }
 }
 
 function formatTime(unit){

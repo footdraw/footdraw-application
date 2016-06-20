@@ -20,8 +20,8 @@ socket.on('answered',function(message){
 
 socket.on('winner found',function(winner){
   swal({
-    title : 'Jeu terminé',
-    text : 'Le gagnant est '+winner.pseudo+' et la bonne réponse était : '+winner.word,
+    title : '<i class="yellow huge trophy icon "></i> <br>Jeu terminé',
+    text : 'Le gagnant est <b>'+winner.pseudo+'</b> et la bonne réponse était : '+winner.word,
     showCancelButton: false,
     showConfirmButton: true,
     closeOnConfirm: false,
@@ -29,6 +29,7 @@ socket.on('winner found',function(winner){
     html : true
   },function(isConfirm){
     console.log('rejouer');
+    window.location.reload();
   });
 });
 
@@ -43,5 +44,6 @@ socket.on('time end',function(winner){
     html : true
   },function(isConfirm){
     console.log('rejouer');
+    window.location.reload();
   });
 });

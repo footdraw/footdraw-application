@@ -15,6 +15,7 @@ module.exports         = function(app){
 			if(app.room.checkResponse(response,this.id)){
 				message      = {'pseudo' : pseudo,'word' : app.room.props.word};
 				app.socket.io.emit('winner found',message);
+				app.room.resetWinner();
 			}else{
 				message      = {'pseudo' : pseudo,'response' : ent.encode(response)};
 				app.socket.io.emit('answered',message);
